@@ -1,0 +1,72 @@
+{
+  "name": "LearnerProfile",
+  "type": "object",
+  "properties": {
+    "phase_start_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "current_phase": {
+      "type": "number",
+      "default": 1,
+      "description": "1-4 week phase"
+    },
+    "topic_skill": {
+      "type": "object",
+      "description": "Map of topic -> skill estimate 0-1"
+    },
+    "bottlenecks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "priorities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "total_attempts": {
+      "type": "number",
+      "default": 0
+    },
+    "total_correct": {
+      "type": "number",
+      "default": 0
+    },
+    "streak_count": {
+      "type": "number",
+      "default": 0
+    },
+    "last_session_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "dismissed_problem_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": [],
+      "description": "Problems permanently retired via Replace \u2014 never selected again"
+    }
+  },
+  "required": [
+    "phase_start_date"
+  ],
+  "rls": {
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}
